@@ -1,5 +1,17 @@
 const deleteBtn = document.getElementById("delete-folder");
-// ⏰ Live Clock + Date
+const desktop = document.getElementById("desktop");
+const contextMenu = document.getElementById("context-menu");
+const newFolderBtn = document.getElementById("new-folder");
+const renameBtn = document.getElementById("rename-folder");
+let rightClickedIcon = null;
+let folderCount = 1;
+let iconTop = 110; 
+let iconLeft = 10;
+const iconHeight = 90;
+
+
+
+// Live Clock + Date
 function updateClock() {
     const clock = document.getElementById("clock");
     const date = document.getElementById("date");
@@ -19,21 +31,10 @@ function updateClock() {
   updateClock();
   
   
-  // 🖱️ Desktop + Context Menu Setup
-  const desktop = document.getElementById("desktop");
-  const contextMenu = document.getElementById("context-menu");
-  const newFolderBtn = document.getElementById("new-folder");
-  const renameBtn = document.getElementById("rename-folder");
-  let rightClickedIcon = null;
-  
-  // 📐 Folder Layout Settings
-  let folderCount = 1;
-  let iconTop = 110; 
-  let iconLeft = 10;
-  const iconHeight = 90;
   
   
-  // 📂 Create New Folder
+  
+  // Create New Folder
   function placeNewFolder() {
     const desktopHeight = desktop.clientHeight;
   
@@ -60,7 +61,7 @@ function updateClock() {
   newFolderBtn.addEventListener("click", placeNewFolder);
   
   
-  // 📋 Context Menu Handling
+  //  Context Menu Handling
   desktop.addEventListener("contextmenu", (e) => {
     e.preventDefault();
   
@@ -78,13 +79,13 @@ function updateClock() {
     contextMenu.classList.remove("hidden");
   });
   
-  // Hide context menu on left click
+//   Hide context menu on left click
   document.addEventListener("click", () => {
     contextMenu.classList.add("hidden");
   });
   
   
-  // ✏️ Rename Functionality
+  // Rename Functionality
   renameBtn.addEventListener("click", () => {
     if (!rightClickedIcon) return;
   
@@ -118,7 +119,7 @@ function updateClock() {
   });
 
 
-  // 🗑️ Delete Functionality
+  // Delete Functionality
 deleteBtn.addEventListener("click", () => {
     if (!rightClickedIcon) return;
   
