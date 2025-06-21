@@ -1,3 +1,4 @@
+const deleteBtn = document.getElementById("delete-folder");
 // ⏰ Live Clock + Date
 function updateClock() {
     const clock = document.getElementById("clock");
@@ -65,6 +66,12 @@ function updateClock() {
   
     const targetIcon = e.target.closest('.desktop-icon');
     rightClickedIcon = targetIcon || null;
+
+    if (rightClickedIcon) {
+        deleteBtn.classList.remove("hidden");
+      } else {
+        deleteBtn.classList.add("hidden");
+      }
   
     contextMenu.style.top = `${e.clientY}px`;
     contextMenu.style.left = `${e.clientX}px`;
@@ -107,5 +114,15 @@ function updateClock() {
       if (e.key === "Enter") finishRename();
     });
   
+    contextMenu.classList.add("hidden");
+  });
+
+
+  // 🗑️ Delete Functionality
+deleteBtn.addEventListener("click", () => {
+    if (!rightClickedIcon) return;
+  
+    rightClickedIcon.remove();  
+    rightClickedIcon = null;
     contextMenu.classList.add("hidden");
   });
