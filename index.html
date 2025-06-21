@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>DevOS - Browser OS Clone</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- Desktop -->
+  <div id="desktop">
+    <div class="desktop-icon" data-app="notepad">
+      <img src="images/file-explorer.png" alt="FileExplorer" />
+      <span>File Explorer</span>
+    </div>
+  </div>
+
+  <!-- Right-click context menu -->
+  <div id="context-menu" class="hidden">
+    <ul>
+        <li class="disabled">View ▸</li>
+        <li class="disabled">Sort by ▸</li>
+        <li id="refresh">🔄 Refresh</li>
+        <hr />
+        <li class="submenu-parent">
+          ➕ New ▸
+          <ul class="submenu">
+            <li id="new-folder">📁 Folder</li>
+            <li class="disabled">📄 Text Document</li>
+            <li class="disabled">📑 Shortcut</li>
+          </ul>
+        </li>
+        <hr />
+        <li class="disabled">🖥️ Display settings</li>
+        <li class="disabled">🎨 Personalize</li>
+        <hr />
+        <li id="rename-folder">✏️ Rename</li>
+        <li class="disabled">📋 Paste</li>
+        <hr />
+        <li class="disabled">⬇️ Show more options</li>
+      </ul>
+  </div>
+
+  <!-- Taskbar -->
+  <div id="taskbar">
+    <div class="taskbar-left"></div>
+
+    <div class="taskbar-center">
+      <div id="start-button">
+        <img src="images/window.png" alt="Start" />
+      </div>
+      <div id="search-bar">
+        <input type="text" placeholder="Search" />
+      </div>
+      <img src="images/chrome.png" class="taskbar-app" title="Chrome" />
+      <img src="images/edge.png" class="taskbar-app" title="Edge" />
+      <img src="images/vscode.png" class="taskbar-app vs" title="VSCode" />
+      <img src="images/microsoft (1).png" class="taskbar-app" title="AppStore" />
+    </div>
+
+    <div class="taskbar-right">
+      <span id="wifi"><i class="ri-wifi-line"></i></span>
+      <span id="battery"><i class="ri-battery-fill"></i></span>
+      <div id="datetime">
+        <span id="clock">00:00</span>
+        <span id="date">dd/mm/yyyy</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Start Menu -->
+  <div id="start-menu" class="hidden">
+    <ul>
+      <li data-app="notepad">📝 Notepad</li>
+      <li data-app="calc">🧮 Calculator</li>
+      <li>⚙️ Settings</li>
+    </ul>
+  </div>
+
+  <!-- App windows area -->
+  <div id="windows-container"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
